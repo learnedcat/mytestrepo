@@ -1,0 +1,38 @@
+{
+  "inbounds": [
+    {
+      "port": 443, // Change this to your preferred port
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "YOUR_UUID", // Replace with your UUID
+            "flow": "xtls-rprx-direct", // For XTLS
+            "level": 0,
+            "email": "user@example.com"
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": []
+      },
+      "streamSettings": {
+        "network": "tcp", // or "ws" for WebSocket
+        "security": "tls", // For TLS support
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "/path/to/your_cert.crt", // Path to your TLS certificate
+              "keyFile": "/path/to/your_cert.key" // Path to your private key
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}
